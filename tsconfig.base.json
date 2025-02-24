@@ -17,10 +17,7 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "paths": {
-      "@truststack/ui-config": ["./packages/ui-config/src"],
-      "@truststack/ui": ["./packages/ui/src"]
-    },
+    "paths": {},
     "esModuleInterop": true,
     "jsx": "react-jsx"
   },
