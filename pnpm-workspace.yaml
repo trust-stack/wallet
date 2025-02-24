@@ -1,0 +1,3 @@
+packages:
+  - packages/wallet-sdk-react
+  - apps/wallet-extension
