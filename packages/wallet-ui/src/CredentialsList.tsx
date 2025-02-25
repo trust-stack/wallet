@@ -1,3 +1,11 @@
+import {Alert} from "@truststack/ui";
+
 export function CredentialsList() {
-  return <div>Hello World</div>;
+  return (
+    <Alert>
+      <Alert.Container>
+        <Alert.Heading>Hello</Alert.Heading>
+      </Alert.Container>
+    </Alert>
+  );
 }
