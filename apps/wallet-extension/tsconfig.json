@@ -1,21 +1,18 @@
 {
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", ".stories/**/*.tsx"],
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "esnext",
     "skipLibCheck": true,
-    "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": ["src"],
-  "references": [{"path": "./tsconfig.node.json"}]
+    "incremental": false,
+    "paths": {
+      "@truststack/wallet-ui": ["../../packages/wallet-ui/src"],
+      "@truststack/wallet-ui/*": ["../../packages/wallet-ui/src/*"]
+    }
+  }
 }

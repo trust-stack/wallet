@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -12,7 +11,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@truststack/ui": "^0.0.6",
+    "@tamagui/lucide-icons": "^1.125.17",
+    "@truststack/ui": "^0.0.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "swr": "^2.3.2"
@@ -53,6 +53,11 @@
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
+    ]
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
     ]
   }
 }

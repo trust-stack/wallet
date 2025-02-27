@@ -1,7 +1,8 @@
-import {Body, ListItem, Spinner, YStack} from "@truststack/ui";
+import {Body, Divider, ListItem, Spinner, YStack} from "@truststack/ui";
+import {Fragment} from "react";
 import {useCredentials} from "./hooks";
 
-export function CredentialsList() {
+export function CredentialsList(): JSX.Element {
   const {credentials, loading, noResults} = useCredentials();
 
   return (
@@ -11,11 +12,14 @@ export function CredentialsList() {
       {noResults && <Body>No credentials found.</Body>}
 
       {credentials?.map((credential) => (
-        <ListItem key={credential.id}>
-          <ListItem.Container>
-            <ListItem.Headline>{credential.name}</ListItem.Headline>
-          </ListItem.Container>
-        </ListItem>
+        <Fragment key={credential.id}>
+          <ListItem>
+            <ListItem.Container>
+              <ListItem.Headline>{credential.name}</ListItem.Headline>
+            </ListItem.Container>
+          </ListItem>
+          <Divider />
+        </Fragment>
       ))}
     </YStack>
   );

@@ -9,20 +9,6 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
-    {
-      name: "@storybook/addon-react-native-web",
-      options: {
-        modulesToTranspile: [
-          "expo-linking",
-          "expo-constants",
-          "expo-modules-core",
-          "expo-document-picker",
-          "expo-av",
-          "expo-asset",
-          "expo-document-picker",
-        ],
-      },
-    },
   ],
   framework: {
     name: "@storybook/react-vite",
