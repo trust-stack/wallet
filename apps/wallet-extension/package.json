@@ -1,0 +1,30 @@
+{
+  "name": "wallet-extension",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite -- --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tamagui/core": "^1.125.17",
+    "@tamagui/lucide-icons": "^1.125.17",
+    "@truststack/ui": "^0.0.10",
+    "@truststack/wallet-ui": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tamagui": "^1.125.17"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.31",
+    "@tamagui/vite-plugin": "1.91.2",
+    "@types/chrome": "^0.0.222",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}
