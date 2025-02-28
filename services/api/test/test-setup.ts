@@ -9,7 +9,7 @@ const execAsync = promisify(exec);
 
 const DATABASE_URL = `postgresql://trust-stack:password@localhost:5432/trust-stack?schema=public`;
 
-async function waitForPostgres(retries = 10, delay = 2000): Promise<boolean> {
+async function waitForPostgres(retries = 20, delay = 2000): Promise<boolean> {
   const client = new Client({
     connectionString: DATABASE_URL,
   });
