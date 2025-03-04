@@ -1,5 +1,5 @@
 {
-  "name": "@truststack/wallet-ui",
+  "name": "@truststack/wallet-sdk",
   "private": true,
   "version": "0.0.0",
   "type": "module",
