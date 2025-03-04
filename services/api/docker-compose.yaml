@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: trust-stack
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: trust-stack
+    ports:
+      - '5432:5432'
+    networks:
+      - trust-stack-network
+
+networks:
+  trust-stack-network:
+    driver: bridge

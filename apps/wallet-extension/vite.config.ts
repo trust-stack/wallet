@@ -46,7 +46,7 @@ export default defineConfig({
   define: {
     "process.env": {},
   },
-  plugins: [crx({manifest}), tsconfigPaths()],
+  plugins: [crx({manifest}) as any, tsconfigPaths()],
   legacy: {
     skipWebSocketTokenCheck: true,
   },
