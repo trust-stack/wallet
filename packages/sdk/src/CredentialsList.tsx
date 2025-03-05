@@ -1,25 +1,18 @@
-import {Body, Divider, ListItem, Spinner, YStack} from "@truststack/ui";
-import {Fragment} from "react";
-import {useCredentials} from "./hooks";
+import {Body, Spinner, YStack} from "@truststack/ui";
+import {useCredentials} from "@truststack/wallet-core";
+import {Credential} from "./Credential";
 
 export function CredentialsList(): JSX.Element {
   const {credentials, loading, noResults} = useCredentials();
 
   return (
-    <YStack>
+    <YStack gap={12}>
       {loading && <Spinner />}
 
       {noResults && <Body>No credentials found.</Body>}
 
       {credentials?.map((credential) => (
-        <Fragment key={credential.id}>
-          <ListItem>
-            <ListItem.Container>
-              <ListItem.Headline>{credential.name}</ListItem.Headline>
-            </ListItem.Container>
-          </ListItem>
-          <Divider />
-        </Fragment>
+        <Credential credential={credential} key={credential.id} />
       ))}
     </YStack>
   );

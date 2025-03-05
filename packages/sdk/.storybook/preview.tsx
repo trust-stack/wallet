@@ -1,11 +1,13 @@
 import type {Preview} from "@storybook/react";
 import {TamaguiProvider, config} from "@truststack/ui";
+import {WalletProvider} from "@truststack/wallet-core";
 import {initialize, mswLoader} from "msw-storybook-addon";
 import React from "react";
-import {SWRConfig} from "swr";
 
 // Initialize msw
-initialize();
+initialize({
+  onUnhandledRequest: "bypass",
+});
 
 const preview: Preview = {
   parameters: {
@@ -19,16 +21,9 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <TamaguiProvider config={config} defaultTheme="light">
-        <SWRConfig
-          value={{
-            dedupingInterval: 0,
-            provider: () => new Map(),
-            revalidateOnMount: true,
-            revalidateOnFocus: true,
-          }}
-        >
+        <WalletProvider>
           <Story />
-        </SWRConfig>
+        </WalletProvider>
       </TamaguiProvider>
     ),
   ],

@@ -1,6 +1,7 @@
 import type {StorybookConfig} from "@storybook/react-vite";
 import {tamaguiPlugin} from "@tamagui/vite-plugin";
 import svgr from "vite-plugin-svgr";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -33,6 +34,7 @@ const config: StorybookConfig = {
           disableExtraction: true,
           platform: "web",
         }),
+        tsconfigPaths(),
         svgr({
           svgrOptions: {
             icon: true,

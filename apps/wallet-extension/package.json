@@ -11,9 +11,9 @@
     "@tamagui/core": "^1.125.17",
     "@tamagui/lucide-icons": "^1.125.17",
     "@truststack/ui": "^0.0.10",
-    "@truststack/wallet-ui": "workspace:*",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@truststack/wallet-sdk": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "tamagui": "^1.125.17"
   },
   "devDependencies": {

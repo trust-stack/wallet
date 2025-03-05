@@ -17,9 +17,13 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "paths": {},
+    "paths": {
+      "@truststack/wallet-core": ["packages/core/src"],
+      "@truststack/wallet-sdk": ["packages/sdk/src"]
+    },
     "esModuleInterop": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["@types/node"]
   },
   "typeAcquisition": {
     "enable": true

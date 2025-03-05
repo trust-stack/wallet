@@ -1,11 +1,10 @@
-import {Plus} from "@tamagui/lucide-icons";
-import {Fab, TopAppBar, View, YStack} from "@truststack/ui";
+import {ScrollView, TopAppBar, View, YStack} from "@truststack/ui";
+import {AddCredentialSheet} from "./AddCredentialSheet";
 import {CredentialsList} from "./CredentialsList";
-
 export function CredentialsScreen(): JSX.Element {
   return (
-    <YStack position="relative" width="100%" height="100%">
-      <TopAppBar size="small">
+    <YStack position="relative" maxHeight="100%" maxWidth="100%" flex={0}>
+      <TopAppBar size="small" backgroundColor="transparent">
         <TopAppBar.TopRail>
           <TopAppBar.SmallHeadline size="large">
             Credentials
@@ -13,16 +12,21 @@ export function CredentialsScreen(): JSX.Element {
         </TopAppBar.TopRail>
       </TopAppBar>
 
-      <CredentialsList />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        px={"$spacing.compact_margin"}
+      >
+        <CredentialsList />
+        <View height={100} />
+      </ScrollView>
+
       <View
         position="absolute"
         bottom={"$spacing.compact_margin"}
         right={"$spacing.compact_margin"}
         zIndex={99999}
       >
-        <Fab size="medium" variant="primary">
-          <Fab.Icon Icon={Plus} />
-        </Fab>
+        <AddCredentialSheet />
       </View>
     </YStack>
   );

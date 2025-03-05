@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import {YStack} from "@truststack/ui";
+import {View} from "@truststack/ui";
 import {CredentialsList} from "./CredentialsList";
 import {Populated as PopulatedList} from "./CredentialsList.stories";
 import {CredentialsScreen} from "./CredentialsScreen";
@@ -8,11 +8,17 @@ const meta = {
   component: CredentialsScreen,
   decorators: [
     (Story) => (
-      <YStack marginTop={20} margin={"auto"} width={400} height={400}>
+      <View style={{maxHeight: "100vh", maxWidth: "100vw"}}>
         <Story />
-      </YStack>
+      </View>
     ),
   ],
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "mobile2",
+    },
+  },
 } as Meta<typeof CredentialsList>;
 
 export default meta;
@@ -20,6 +26,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Populated: Story = {
   parameters: {
-    msw: [...PopulatedList.parameters?.msw],
+    msw: {
+      handlers: [...PopulatedList.parameters?.msw?.handlers],
+    },
   },
 };
