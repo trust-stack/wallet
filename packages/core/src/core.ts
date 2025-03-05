@@ -1,5 +1,8 @@
-import {useQuery} from "@tanstack/react-query";
-import {getWalletCredentialsOptions} from "client/@tanstack/react-query.gen";
+import {useMutation, useQuery} from "@tanstack/react-query";
+import {
+  addWalletCredentialMutation,
+  getWalletCredentialsOptions,
+} from "./client/@tanstack/react-query.gen";
 
 export type PaginationProps = {
   page?: number;
@@ -26,5 +29,17 @@ export const useCredentials = ({
     loading: isLoading,
     error,
     noResults: credentials?.length === 0 && !isLoading,
+  };
+};
+
+export const useAddCredential = () => {
+  const result = useMutation({
+    ...addWalletCredentialMutation(),
+  });
+
+  return {
+    addCredential: result.mutateAsync,
+    loading: result.isPending,
+    error: result.error,
   };
 };

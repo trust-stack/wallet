@@ -65,18 +65,6 @@ export type CreateWalletCredential = {
      */
     name: string;
     /**
-     * The context of the wallet credential
-     */
-    context: Array<string>;
-    /**
-     * The issuance date of the wallet credential
-     */
-    issuanceDate: string;
-    /**
-     * The expiration date of the wallet credential
-     */
-    expirationDate: string;
-    /**
      * The raw data of the wallet credential
      */
     raw: {
@@ -120,28 +108,28 @@ export type GetWalletCredentialsResponses = {
 
 export type GetWalletCredentialsResponse = GetWalletCredentialsResponses[keyof GetWalletCredentialsResponses];
 
-export type CreateWalletCredentialData = {
+export type AddWalletCredentialData = {
     body: CreateWalletCredential;
     path?: never;
     query?: never;
     url: '/wallet/credentials';
 };
 
-export type CreateWalletCredentialErrors = {
+export type AddWalletCredentialErrors = {
     /**
      * Bad request - invalid credential data
      */
     400: unknown;
 };
 
-export type CreateWalletCredentialResponses = {
+export type AddWalletCredentialResponses = {
     /**
      * Credential created successfully
      */
     201: WalletCredential;
 };
 
-export type CreateWalletCredentialResponse = CreateWalletCredentialResponses[keyof CreateWalletCredentialResponses];
+export type AddWalletCredentialResponse = AddWalletCredentialResponses[keyof AddWalletCredentialResponses];
 
 export type DeleteWalletCredentialData = {
     body?: never;

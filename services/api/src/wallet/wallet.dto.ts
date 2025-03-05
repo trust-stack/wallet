@@ -1,12 +1,5 @@
 import { ApiProperty, ApiSchema } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
-import {
-  IsArray,
-  IsDate,
-  IsObject,
-  IsOptional,
-  IsString,
-} from 'class-validator';
+import { IsObject, IsOptional, IsString } from 'class-validator';
 
 @ApiSchema({ name: 'CreateWalletCredential' })
 export class CreateWalletCredentialDto {
@@ -14,23 +7,6 @@ export class CreateWalletCredentialDto {
   @IsString()
   @ApiProperty({ description: 'The name of the wallet credential' })
   name?: string;
-
-  @IsArray()
-  @IsString({ each: true })
-  @ApiProperty({ description: 'The context of the wallet credential' })
-  context: string[];
-
-  @IsOptional()
-  @IsDate()
-  @Type(() => Date)
-  @ApiProperty({ description: 'The issuance date of the wallet credential' })
-  issuanceDate?: Date;
-
-  @IsOptional()
-  @IsDate()
-  @Type(() => Date)
-  @ApiProperty({ description: 'The expiration date of the wallet credential' })
-  expirationDate?: Date;
 
   @IsObject()
   @ApiProperty({ description: 'The raw data of the wallet credential' })

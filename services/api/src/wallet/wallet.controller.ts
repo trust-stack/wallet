@@ -102,7 +102,7 @@ export class WalletController {
   @Post('credentials')
   @ApiOperation({
     summary: 'Create a new wallet credential',
-    operationId: 'createWalletCredential',
+    operationId: 'addWalletCredential',
   })
   @ApiResponse({
     status: 201,
@@ -113,7 +113,7 @@ export class WalletController {
     status: 400,
     description: 'Bad request - invalid credential data',
   })
-  async createCredential(
+  async addCredential(
     @Body() data: CreateWalletCredentialDto,
   ): Promise<WalletCredentialDto> {
     try {

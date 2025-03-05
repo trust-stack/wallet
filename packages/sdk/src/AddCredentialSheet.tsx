@@ -8,12 +8,32 @@ import {
   View,
   YStack,
 } from "@truststack/ui";
+import {useAddCredential} from "@truststack/wallet-core";
 import {Fragment, useState} from "react";
 
 export type AddCredentialSheetProps = Partial<FabProps>;
 
 export function AddCredentialSheet({...props}: AddCredentialSheetProps) {
   const [open, setOpen] = useState(false);
+  const {addCredential, loading, error} = useAddCredential();
+
+  const handleScan = (data: string) => {
+    // Verify is a URL
+    if (!data.startsWith("http")) {
+      return;
+    }
+
+    fetch(data)
+      .then((res) => res.json())
+      .then((data) => {
+        addCredential({
+          body: {
+            name: "test",
+            raw: data,
+          },
+        });
+      });
+  };
   return (
     <Fragment>
       <Fab

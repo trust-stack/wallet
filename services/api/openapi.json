@@ -58,7 +58,7 @@
         ]
       },
       "post": {
-        "operationId": "createWalletCredential",
+        "operationId": "addWalletCredential",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -237,23 +237,6 @@
             "type": "string",
             "description": "The name of the wallet credential"
           },
-          "context": {
-            "description": "The context of the wallet credential",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "issuanceDate": {
-            "format": "date-time",
-            "type": "string",
-            "description": "The issuance date of the wallet credential"
-          },
-          "expirationDate": {
-            "format": "date-time",
-            "type": "string",
-            "description": "The expiration date of the wallet credential"
-          },
           "raw": {
             "type": "object",
             "description": "The raw data of the wallet credential"
@@ -261,9 +244,6 @@
         },
         "required": [
           "name",
-          "context",
-          "issuanceDate",
-          "expirationDate",
           "raw"
         ]
       }
