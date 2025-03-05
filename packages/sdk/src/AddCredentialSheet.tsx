@@ -37,12 +37,14 @@ export function AddCredentialSheet({...props}: AddCredentialSheetProps) {
             <Headline size="small">Add Credential</Headline>
 
             <View margin={"auto"}>
-              <BarcodeScanner
-                onScan={(data) => {
-                  console.log("scan", data);
-                }}
-                onError={() => {}}
-              />
+              {open && (
+                <BarcodeScanner
+                  onScan={(data) => {
+                    console.log("scan", data);
+                  }}
+                  onError={() => {}}
+                />
+              )}
             </View>
           </YStack>
         </Sheet.Frame>

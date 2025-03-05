@@ -1,0 +1,272 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/wallet/credentials": {
+      "get": {
+        "operationId": "getWalletCredentials",
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "description": "Page number (1-based)",
+            "schema": {
+              "example": 1,
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Number of items per page",
+            "schema": {
+              "example": 10,
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns paginated credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedWalletCredentialsResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get paginated wallet credentials",
+        "tags": [
+          "wallet"
+        ]
+      },
+      "post": {
+        "operationId": "createWalletCredential",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWalletCredential"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Credential created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WalletCredential"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid credential data"
+          }
+        },
+        "summary": "Create a new wallet credential",
+        "tags": [
+          "wallet"
+        ]
+      }
+    },
+    "/wallet/credentials/{id}": {
+      "delete": {
+        "operationId": "deleteWalletCredential",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Credential ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Credential deleted successfully"
+          },
+          "404": {
+            "description": "Credential not found"
+          }
+        },
+        "summary": "Delete a wallet credential",
+        "tags": [
+          "wallet"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Trust Stack Wallet API",
+    "description": "",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "WalletCredential": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the wallet credential"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the wallet credential"
+          },
+          "context": {
+            "description": "The context of the wallet credential",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "issuanceDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "The issuance date of the wallet credential"
+          },
+          "expirationDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "The expiration date of the wallet credential"
+          },
+          "raw": {
+            "type": "object",
+            "description": "The raw data of the wallet credential"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "context",
+          "issuanceDate",
+          "expirationDate",
+          "raw"
+        ]
+      },
+      "Pagination": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "number",
+            "description": "The total number of items"
+          },
+          "page": {
+            "type": "number",
+            "description": "The current page number"
+          },
+          "limit": {
+            "type": "number",
+            "description": "The number of items per page"
+          },
+          "pages": {
+            "type": "number",
+            "description": "The total number of pages"
+          }
+        },
+        "required": [
+          "total",
+          "page",
+          "limit",
+          "pages"
+        ]
+      },
+      "PaginatedWalletCredentialsResponse": {
+        "type": "object",
+        "properties": {
+          "credentials": {
+            "description": "The wallet credentials",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WalletCredential"
+            }
+          },
+          "pagination": {
+            "description": "The pagination information",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Pagination"
+              }
+            ]
+          }
+        },
+        "required": [
+          "credentials",
+          "pagination"
+        ]
+      },
+      "CreateWalletCredential": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the wallet credential"
+          },
+          "context": {
+            "description": "The context of the wallet credential",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "issuanceDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "The issuance date of the wallet credential"
+          },
+          "expirationDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "The expiration date of the wallet credential"
+          },
+          "raw": {
+            "type": "object",
+            "description": "The raw data of the wallet credential"
+          }
+        },
+        "required": [
+          "name",
+          "context",
+          "issuanceDate",
+          "expirationDate",
+          "raw"
+        ]
+      }
+    }
+  }
+}

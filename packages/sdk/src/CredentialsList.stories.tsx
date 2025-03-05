@@ -21,7 +21,7 @@ export const Populated: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get("/api/wallet/credentials", () => {
+        http.get("/wallet/credentials", () => {
           const credentials = new Array(5).fill(null).map((_, index) => ({
             id: index.toString(),
             name: `Verifiable Credential ${index + 1}`,
@@ -31,7 +31,7 @@ export const Populated: Story = {
             expiresAt: new Date("2024-01-01"),
           }));
 
-          return HttpResponse.json(credentials);
+          return HttpResponse.json({credentials});
         }),
       ],
     },
@@ -42,7 +42,7 @@ export const Loading: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get("/api/wallet/credentials", async () => {
+        http.get("/wallet/credentials", async () => {
           await delay("infinite");
         }),
       ],
@@ -54,7 +54,7 @@ export const NoResults: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get("/api/wallet/credentials", () => {
+        http.get("/wallet/credentials", () => {
           return HttpResponse.json([]);
         }),
       ],

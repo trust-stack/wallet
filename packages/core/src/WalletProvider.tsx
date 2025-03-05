@@ -1,40 +1,42 @@
+import {createClient} from "@hey-api/client-fetch";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {CoreConfig, useConfig} from "config";
-import {fetcher} from "fetch";
-import {createContext, useContext, useEffect} from "react";
-import {SWRConfig} from "swr";
-
-const context = createContext<CoreConfig | undefined>(undefined);
+import {useEffect} from "react";
 
 export type WalletProviderProps = {
   readonly children: React.ReactNode;
   readonly config?: CoreConfig;
 };
 
+// hey-api client
+const client = createClient({});
+
+// react-query client
+const queryClient = new QueryClient();
+
 export function WalletProvider({
   children,
   config: defaultConfig,
 }: WalletProviderProps) {
-  const {setConfig} = useConfig();
+  const {setConfig, config} = useConfig();
+
+  // useEffect(() => {
+  //   setConfig(defaultConfig);
+  // }, [defaultConfig, setConfig]);
 
   useEffect(() => {
-    setConfig(defaultConfig);
-  }, [defaultConfig, setConfig]);
+    client.setConfig({
+      baseUrl: config?.baseUrl,
+    });
+
+    client.interceptors.request.use(async (request) => {
+      const token = await config?.getBearerToken();
+      request.headers.set("Authorization", `Bearer ${token}`);
+      return request;
+    });
+  }, [config]);
 
   return (
-    <SWRConfig
-      value={{
-        fetcher,
-      }}
-    >
-      {children}
-    </SWRConfig>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
-}
-
-export function useCoreConfig() {
-  const config = useContext(context);
-  if (!config) {
-    throw new Error("CoreConfig not found");
-  }
-  return config;
 }

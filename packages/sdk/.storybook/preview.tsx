@@ -2,7 +2,6 @@ import type {Preview} from "@storybook/react";
 import {TamaguiProvider, config} from "@truststack/ui";
 import {WalletProvider} from "@truststack/wallet-core";
 import {initialize, mswLoader} from "msw-storybook-addon";
-import React from "react";
 
 // Initialize msw
 initialize({

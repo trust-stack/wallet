@@ -1,9 +1,9 @@
 import {Body, Card, dateToHumanReadable, YStack} from "@truststack/ui";
-import {Credential as TCredential} from "@truststack/wallet-core";
+import {WalletCredential} from "@truststack/wallet-core";
 import {VerificationStatus} from "./VerificationStatus";
 
 type CredentialProps = {
-  readonly credential: TCredential;
+  readonly credential: WalletCredential;
 };
 
 export function Credential({credential}: CredentialProps) {
@@ -17,22 +17,22 @@ export function Credential({credential}: CredentialProps) {
     >
       <Card.Header>
         <Card.Headline>{credential.name}</Card.Headline>
-        <Card.Subheader>{credential.issuerName}</Card.Subheader>
+        <Card.Subheader>{"ACME"}</Card.Subheader>
       </Card.Header>
 
       <Card.Actions justifyContent="space-between" alignItems="flex-end">
-        <VerificationStatus verified={credential.verified}>
+        <VerificationStatus verified={true}>
           <VerificationStatus.Icon />
           <VerificationStatus.Text />
         </VerificationStatus>
 
         <YStack>
           <Body color="$onSurfaceVariant" size="small" textAlign="right">
-            Expires: {dateToHumanReadable(credential.expiresAt)}
+            Expires: {dateToHumanReadable(new Date())}
           </Body>
 
           <Body color="$onSurfaceVariant" size="small" textAlign="right">
-            Issued: {dateToHumanReadable(credential.issuedAt)}
+            Issued: {dateToHumanReadable(new Date())}
           </Body>
         </YStack>
       </Card.Actions>

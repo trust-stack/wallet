@@ -37,20 +37,6 @@ export class CreateWalletCredentialDto {
   raw: Record<string, any>;
 }
 
-@ApiSchema({ name: 'PaginatedWalletCredentialsResponse' })
-export class PaginatedWalletCredentialsResponseDto {
-  @ApiProperty({ description: 'The wallet credentials' })
-  credentials: WalletCredentialDto[];
-
-  @ApiProperty({ description: 'The pagination information' })
-  pagination: {
-    total: number;
-    page: number;
-    limit: number;
-    pages: number;
-  };
-}
-
 @ApiSchema({ name: 'WalletCredential' })
 export class WalletCredentialDto {
   @ApiProperty({ description: 'The ID of the wallet credential' })
@@ -70,4 +56,39 @@ export class WalletCredentialDto {
 
   @ApiProperty({ description: 'The raw data of the wallet credential' })
   raw: Record<string, any>;
+}
+
+@ApiSchema({ name: 'Pagination' })
+export class PaginationDto {
+  @ApiProperty({ description: 'The total number of items' })
+  total: number;
+
+  @ApiProperty({ description: 'The current page number' })
+  page: number;
+
+  @ApiProperty({ description: 'The number of items per page' })
+  limit: number;
+
+  @ApiProperty({ description: 'The total number of pages' })
+  pages: number;
+}
+
+@ApiSchema({ name: 'PaginatedWalletCredentialsResponse' })
+export class PaginatedWalletCredentialsResponseDto {
+  @ApiProperty({
+    description: 'The wallet credentials',
+    type: [WalletCredentialDto],
+  })
+  credentials: WalletCredentialDto[];
+
+  @ApiProperty({
+    description: 'The pagination information',
+    type: PaginationDto,
+  })
+  pagination: {
+    total: number;
+    page: number;
+    limit: number;
+    pages: number;
+  };
 }
