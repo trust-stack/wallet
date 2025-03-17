@@ -10,8 +10,9 @@
   "dependencies": {
     "@tamagui/core": "^1.125.17",
     "@tamagui/lucide-icons": "^1.125.17",
-    "@truststack/ui": "^0.0.10",
+    "@truststack/ui": "^0.0.13",
     "@truststack/wallet-sdk": "workspace:*",
+    "@truststack/wallet-core": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tamagui": "^1.125.17"

@@ -27,8 +27,11 @@ importers:
         specifier: ^1.125.17
         version: 1.125.17(react-dom@18.3.1(react@18.3.1))(react-native-svg@15.2.0(react-native@0.74.5(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.74.5(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@truststack/ui':
-        specifier: ^0.0.10
-        version: 0.0.10(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)
+        specifier: ^0.0.13
+        version: 0.0.13(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)
+      '@truststack/wallet-core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@truststack/wallet-sdk':
         specifier: workspace:*
         version: link:../../packages/sdk
@@ -3135,9 +3138,6 @@ packages:
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
-
-  '@truststack/ui@0.0.10':
-    resolution: {integrity: sha512-Q/ixzfZ/x+v2q3yUXsPXiitQVWieZ/rpxybWp5Iigcs+Ol1NI9eCDsxcko6c4JmkwPglSkGLr81r+f5fXy26qA==}
 
   '@truststack/ui@0.0.13':
     resolution: {integrity: sha512-NFy3UqR2ZYqKZRVOQw04TagGo1PVGpmvxOofjsGLGIHlgz46Jx6urwwx+bCYVPJPxXvL2/nMCsqckTHqv9ZNBw==}
@@ -10841,32 +10841,6 @@ snapshots:
   '@testing-library/user-event@14.5.2(@testing-library/dom@10.4.0)':
     dependencies:
       '@testing-library/dom': 10.4.0
-
-  '@truststack/ui@0.0.10(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)':
-    dependencies:
-      '@tamagui/animations-react-native': 1.125.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tamagui/core': 1.125.17(react-dom@18.3.1(react@18.3.1))(react-native@0.74.5(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      '@tamagui/helpers-icon': 1.125.17(react-dom@18.3.1(react@18.3.1))(react-native-svg@15.2.0(react-native@0.74.5(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.74.5(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      '@tamagui/lucide-icons': 1.125.17(react-dom@18.3.1(react@18.3.1))(react-native-svg@15.2.0(react-native@0.74.5(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.74.5(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      '@tamagui/shorthands': 1.125.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tamagui/themes': 1.125.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tanstack/react-table': 8.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      change-case: 4.1.2
-      date-fns: 2.30.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-native: 0.74.5(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1)
-      react-native-svg: 15.2.0(react-native@0.74.5(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      react-native-web: 0.19.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      tamagui: 1.125.17(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react-native@0.74.5(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@babel/preset-env'
-      - '@types/react'
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
 
   '@truststack/ui@0.0.13(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)':
     dependencies:
