@@ -1,12 +1,15 @@
 import {config, TamaguiProvider, View} from "@truststack/ui";
-import {CredentialsScreen} from "@truststack/wallet-ui/CredentialsScreen";
+import {WalletProvider} from "@truststack/wallet-core";
+import {CredentialsScreen} from "@truststack/wallet-sdk/CredentialsScreen";
 
 function App() {
   return (
     <TamaguiProvider config={config} defaultTheme="light">
-      <View style={{height: "100vh", width: "100vw"}}>
-        <CredentialsScreen />
-      </View>
+      <WalletProvider>
+        <View style={{height: "100vh", width: "100vw"}}>
+          <CredentialsScreen />
+        </View>
+      </WalletProvider>
     </TamaguiProvider>
   );
 }

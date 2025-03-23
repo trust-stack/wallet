@@ -1,0 +1,24 @@
+{
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    ".stories/**/*.tsx",
+    ".storybook/**/*.tsx"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.stories.tsx"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "esnext",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "incremental": false,
+    "types": ["@types/react"],
+    "paths": {
+      "@truststack/wallet-core": ["../core/src/index.ts"]
+    }
+  }
+}

@@ -11,8 +11,10 @@
     "allowSyntheticDefaultImports": true,
     "incremental": false,
     "paths": {
-      "@truststack/wallet-ui": ["../../packages/wallet-ui/src"],
-      "@truststack/wallet-ui/*": ["../../packages/wallet-ui/src/*"]
+      "@truststack/wallet-core": ["../../packages/core/src"],
+      "@truststack/wallet-core/*": ["../../packages/core/src/*"],
+      "@truststack/wallet-sdk": ["../../packages/sdk/src"],
+      "@truststack/wallet-sdk/*": ["../../packages/sdk/src/*"]
     }
   }
 }
