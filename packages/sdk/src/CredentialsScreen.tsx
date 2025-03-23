@@ -12,10 +12,10 @@ export function CredentialsScreen(): JSX.Element {
       width={"100%"}
       flex={0}
     >
-      <TopAppBar size="small" backgroundColor="transparent">
+      <TopAppBar size="small">
         <TopAppBar.TopRail>
           <TopAppBar.SmallHeadline size="large">
-            Credentials
+            Farm Wallet
           </TopAppBar.SmallHeadline>
         </TopAppBar.TopRail>
       </TopAppBar>
@@ -24,6 +24,7 @@ export function CredentialsScreen(): JSX.Element {
         showsVerticalScrollIndicator={false}
         px={"$spacing.compact_margin"}
       >
+        <View height="$spacing.compact_margin" />
         <CredentialsList />
         <View height={100} />
       </ScrollView>

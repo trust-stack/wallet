@@ -2,6 +2,7 @@ import type {Meta, StoryObj} from "@storybook/react";
 import {YStack} from "@truststack/ui";
 import {delay, http, HttpResponse} from "msw";
 import {CredentialsList} from "./CredentialsList";
+import {ngr} from "./__mocks__/render";
 
 const meta = {
   component: CredentialsList,
@@ -22,16 +23,43 @@ export const Populated: Story = {
     msw: {
       handlers: [
         http.get("/wallet/credentials", () => {
-          const credentials = new Array(5).fill(null).map((_, index) => ({
-            id: index.toString(),
-            name: `Verifiable Credential ${index + 1}`,
-            issuerName: "ACME",
-            verified: true,
-            issuedAt: new Date("2024-01-01"),
-            expiresAt: new Date("2024-01-01"),
-          }));
-
-          return HttpResponse.json({credentials});
+          return HttpResponse.json({
+            credentials: [
+              {
+                id: "ngr",
+                name: "NGR Registration",
+                issuerName: "National Grower Register",
+                verified: true,
+                issuedAt: new Date("2024-06-23"),
+                expiresAt: new Date("2026-06-23"),
+                render: ngr,
+              },
+              {
+                id: "gurantee-of-origin",
+                name: "Gurantee of Origin",
+                issuerName: "Land Titles",
+                verified: true,
+                issuedAt: new Date("2024-06-30"),
+                expiresAt: new Date("2029-06-30"),
+              },
+              {
+                id: "us-epa",
+                name: "US EPA Assessment",
+                issuerName: "CIBO Labs",
+                verified: true,
+                issuedAt: new Date("2024-06-30"),
+                expiresAt: new Date("2029-06-30"),
+              },
+              {
+                id: "emissions-profile",
+                name: "Emissions Profile",
+                issuerName: "AIA Carbon Calculator",
+                verified: true,
+                issuedAt: new Date("2024-06-30"),
+                expiresAt: new Date("2029-06-30"),
+              },
+            ],
+          });
         }),
       ],
     },

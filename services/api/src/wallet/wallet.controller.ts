@@ -99,6 +99,35 @@ export class WalletController {
     };
   }
 
+  @Get('credentials/:id')
+  @ApiOperation({
+    summary: 'Get a wallet credential by ID',
+    operationId: 'getWalletCredentialById',
+  })
+  @ApiParam({ name: 'id', description: 'Credential ID' })
+  @ApiResponse({
+    status: 200,
+    description: 'Returns a wallet credential',
+    type: WalletCredentialDto,
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Credential not found',
+  })
+  async getCredentialById(
+    @Param('id') id: string,
+  ): Promise<WalletCredentialDto> {
+    const credential = await this.prisma.walletCredential.findUnique({
+      where: { id },
+    });
+
+    if (!credential) {
+      throw new HttpException('Credential not found', HttpStatus.NOT_FOUND);
+    }
+
+    return toCredentialDto(credential);
+  }
+
   @Post('credentials')
   @ApiOperation({
     summary: 'Create a new wallet credential',

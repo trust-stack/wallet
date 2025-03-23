@@ -92,6 +92,39 @@
       }
     },
     "/wallet/credentials/{id}": {
+      "get": {
+        "operationId": "getWalletCredentialById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Credential ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a wallet credential",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WalletCredential"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Credential not found"
+          }
+        },
+        "summary": "Get a wallet credential by ID",
+        "tags": [
+          "wallet"
+        ]
+      },
       "delete": {
         "operationId": "deleteWalletCredential",
         "parameters": [
@@ -168,6 +201,10 @@
           "raw": {
             "type": "object",
             "description": "The raw data of the wallet credential"
+          },
+          "render": {
+            "type": "string",
+            "description": "The rendered data of the wallet credential"
           }
         },
         "required": [
@@ -176,7 +213,8 @@
           "context",
           "issuanceDate",
           "expirationDate",
-          "raw"
+          "raw",
+          "render"
         ]
       },
       "Pagination": {

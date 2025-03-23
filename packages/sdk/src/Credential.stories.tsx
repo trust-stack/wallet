@@ -13,10 +13,11 @@ export const Default: Story = {
     credential: {
       id: "1",
       name: "Verifiable Credential",
-      issuerName: "ACME",
-      verified: true,
-      issuedAt: new Date("2024-01-01"),
-      expiresAt: new Date("2024-01-01"),
+      context: [],
+      issuanceDate: new Date().toISOString(),
+      expirationDate: new Date().toISOString(),
+      raw: {},
+      render: "",
     },
   },
 };

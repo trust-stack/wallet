@@ -27,6 +27,10 @@ export type WalletCredential = {
     raw: {
         [key: string]: unknown;
     };
+    /**
+     * The rendered data of the wallet credential
+     */
+    render: string;
 };
 
 export type Pagination = {
@@ -156,6 +160,34 @@ export type DeleteWalletCredentialResponses = {
      */
     200: unknown;
 };
+
+export type GetWalletCredentialByIdData = {
+    body?: never;
+    path: {
+        /**
+         * Credential ID
+         */
+        id: string;
+    };
+    query?: never;
+    url: '/wallet/credentials/{id}';
+};
+
+export type GetWalletCredentialByIdErrors = {
+    /**
+     * Credential not found
+     */
+    404: unknown;
+};
+
+export type GetWalletCredentialByIdResponses = {
+    /**
+     * Returns a wallet credential
+     */
+    200: WalletCredential;
+};
+
+export type GetWalletCredentialByIdResponse = GetWalletCredentialByIdResponses[keyof GetWalletCredentialByIdResponses];
 
 export type ClientOptions = {
     baseUrl: string;

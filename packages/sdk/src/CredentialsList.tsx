@@ -12,7 +12,7 @@ export function CredentialsList(): JSX.Element {
       {noResults && <Body>No credentials found.</Body>}
 
       {credentials?.map((credential) => (
-        <Credential credential={credential} key={credential.id} />
+        <Credential key={credential.id} credential={credential} />
       ))}
     </YStack>
   );

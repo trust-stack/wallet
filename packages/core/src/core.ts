@@ -1,6 +1,7 @@
 import {useMutation, useQuery} from "@tanstack/react-query";
 import {
   addWalletCredentialMutation,
+  getWalletCredentialByIdOptions,
   getWalletCredentialsOptions,
 } from "./client/@tanstack/react-query.gen";
 
@@ -41,5 +42,17 @@ export const useAddCredential = () => {
     addCredential: result.mutateAsync,
     loading: result.isPending,
     error: result.error,
+  };
+};
+
+export const useCredential = (id: string) => {
+  const {data, isLoading, error} = useQuery({
+    ...getWalletCredentialByIdOptions({path: {id}}),
+  });
+
+  return {
+    credential: data,
+    loading: isLoading,
+    error,
   };
 };

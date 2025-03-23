@@ -32,6 +32,9 @@ export class WalletCredentialDto {
 
   @ApiProperty({ description: 'The raw data of the wallet credential' })
   raw: Record<string, any>;
+
+  @ApiProperty({ description: 'The rendered data of the wallet credential' })
+  render?: string;
 }
 
 @ApiSchema({ name: 'Pagination' })
