@@ -20,12 +20,11 @@ export const ngr = `
     max-width: 100%;
     aspect-ratio: 1.586;
     border-radius: 16px;
-    padding: 20px;
+    padding: 12px;
     border-radius: 16px;
-    padding: 20px;
   }
   .ngr-logo {
-    width: 100px;
+    width: 80px;
   }
   .ngr-card-content {
     height: 100%;
@@ -35,12 +34,12 @@ export const ngr = `
   }
   .ngr-card-number {
     text-align: left;
-    font-size: x-large;
+    font-size: large;
     margin-bottom: -20px;
   }
   .ngr-card-label {
     text-align: left;
-    font-size: x-large;
+    font-size: large;
     font-weight: bold;
     margin-bottom: 0px;
   }
