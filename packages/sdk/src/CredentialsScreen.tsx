@@ -12,7 +12,7 @@ export function CredentialsScreen(): JSX.Element {
       width={"100%"}
       flex={0}
     >
-      <TopAppBar size="small">
+      <TopAppBar size="small" backgroundColor="transparent">
         <TopAppBar.TopRail>
           <TopAppBar.SmallHeadline size="large">
             Farm Wallet
